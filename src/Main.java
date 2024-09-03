@@ -1,8 +1,8 @@
 import Exceptions.InvalidCatAgeException;
 import Exceptions.InvalidCatNameException;
+import Exceptions.InvalidComputerScreenException;
+import Exceptions.InvalidComputerSsdException;
 
-import java.net.MalformedURLException;
-import java.net.URL;
 
 public class Main {
     public static void main(String[] args) {
@@ -37,5 +37,23 @@ public class Main {
         System.out.println(cat.getAge());
         System.out.println(cat.getName());
         System.out.println(cat.toString());
+
+        Computers computer1 = new Computers("HP", 256, 17.3);
+        Computers computer2 = new Computers("Apple", 512, 15.7);
+        System.out.println(computer1.toString());
+        System.out.println(computer2.toString());
+        try {
+            computer2.setSsd(25);
+        } catch (InvalidComputerSsdException e){
+            System.out.println(e.getMessage());
+        }
+        try {
+            computer1.setScreen(15.77);
+        } catch (InvalidComputerScreenException ignored){
+        } finally {
+            System.out.println("Found some exception");
+        }
+        System.out.println(computer1.toString());
+        System.out.println(computer2.toString());
     }
 }
