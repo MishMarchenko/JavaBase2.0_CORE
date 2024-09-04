@@ -36,12 +36,12 @@ public class Main {
         }
         System.out.println(cat.getAge());
         System.out.println(cat.getName());
-        System.out.println(cat.toString());
+        System.out.println(cat);
 
         Computers computer1 = new Computers("HP", 256, 17.3);
         Computers computer2 = new Computers("Apple", 512, 15.7);
-        System.out.println(computer1.toString());
-        System.out.println(computer2.toString());
+        System.out.println(computer1);
+        System.out.println(computer2);
         try {
             computer2.setSsd(25);
         } catch (InvalidComputerSsdException e){
@@ -53,7 +53,7 @@ public class Main {
         } finally {
             System.out.println("Found some exception");
         }
-        System.out.println(computer1.toString());
-        System.out.println(computer2.toString());
+        System.out.println(computer1);
+        System.out.println(computer2);
     }
 }
