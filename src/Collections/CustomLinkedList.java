@@ -18,11 +18,30 @@ public class CustomLinkedList<Element> {
         last = node;
         size++;
     }
+    public void addFirst(Element element){
+        Node<Element> node;
+        if(first == null){
+            node = new Node<>(element, null, null);
+            first = node;
+        } else {
+            node = new Node<>(element, first, null);
+            first.prev = node;
+        }
+        first = node;
+        size++;
+    }
     public int getSize(){
         return size;
     }
     public Element get(int index){
         return getNodeByIndex(index).item;
+    }
+    public Element getFirst(){
+        return getNodeByIndex(0).item;
+    }
+    public Element getLast(){
+        int lastElement = getSize() - 1;
+        return getNodeByIndex(lastElement).item;
     }
     public Node<Element> getNodeByIndex(int index){
         Node<Element> node = first;
